@@ -1,4 +1,11 @@
 package datastructure;
+import javax.imageio.IIOException;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Stack;
+
 
 public class DataReader {
 
@@ -19,6 +26,19 @@ public class DataReader {
          */
 
         String textFile = System.getProperty("user.dir") + "/src/data/self-driving-car.txt";
+        BufferedReader br = null;
+        try{
+            br = new BufferedReader(new FileReader(textFile));
+            String file;
+            while ((file = br.readLine())!=null){
+                String a = file;
+                System.out.println(a);
+            }
+        }catch(FileNotFoundException e){
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }

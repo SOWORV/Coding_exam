@@ -34,7 +34,6 @@ public class JsonReaderUtil {
      "mdtaque@gmail.com" "rifat taque" "400k" "QA"
 
      */
-
     public static void main(String[] args) throws MalformedURLException, IOException {
         String sURL = "http://info.venturepulse.org:8080/service-webapp/api/AllEmployeeResources";
         Employee emp = null;
@@ -50,20 +49,37 @@ public class JsonReaderUtil {
         } else if (root instanceof JsonArray) {
             jsonArray = root.getAsJsonArray();
         }
-        for (int i = 0; i < jsonArray.size() - 1; i++) {
+
+        emp = new Employee();
+
+        for (int i = 0; i < jsonArray.size()-1; i++) {
             try {
                 JsonObject jsonobject = jsonArray.get(i).getAsJsonObject();
                 //you code start here
-                String empEmail = jsonobject.get("empName").toString();
+                String empName = jsonobject.get("empName").toString();
+                emp.setEmpName(empName);
+                String empEmail = jsonobject.get("empEmail").toString();
+                emp.setEmpEmail(empEmail);
+                String salary = jsonobject.get("salary").toString();
+                emp.setSalary(salary);
+                String departments = jsonobject.get("department").toString();
+                emp.setDepartment(departments);
+                emp = new Employee(emp.getEmpName(), emp.getEmpEmail(),
+                        emp.getSalary(), emp.getDepartment());
+
+                empList.add(emp);
+
 
             } catch (Exception ex) {
 
             }
+
         }
-        //Print to the console.
+
         for (Employee entry : empList) {
             System.out.println(entry.getEmpEmail() + " " + entry.getEmpName() + " " + entry.getSalary() + " " + entry.getDepartment());
         }
     }
+
 
 }

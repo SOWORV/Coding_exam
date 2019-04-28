@@ -36,11 +36,48 @@ public class Numbers {
         algo.insertionSort(num);
         long insertionSortExecutionTime = algo.executionTime;
         System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + insertionSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "Insert_sort", "SortingNumbers");
+        printValue(numbers);
+        randomize(num, n);
+
 
         //By following above, Continue for rest of the Sorting Algorithm....
-
-
-        //Come to conclusion about which Sorting Algo is better in given data set.
+        //bubblesort
+        algo.bubbleSort(num);
+        long boubbleSortExecutionTime =algo.executionTime;
+        System.out.println("total execution time of "+num.length+ "number in insertion sort take "+boubbleSortExecutionTime+ "mil sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "bubble_Sort", "SortingNumbers");
+        printValue(numbers);
+        randomize(num,n);
+        //quick Sort
+        //algo.quickSort(num);
+        //long quickSortExecutionTime =algo.executionTime;
+        //System.out.println("total execution time of "+num.length+ "number in insertion sort take "+quickSortExecutionTime+ "mil sec");
+        //connectToSqlDB.insertDataFromArrayToSqlTable(num, "quick_Sort", "SortingNumbers");
+        //printValue(numbers);
+        //randomize(num,n);
+        //heap sort*
+        algo.heapSort(num);
+        long heapSortExecutionTime =algo.executionTime;
+        System.out.println("total execution time of "+num.length+ "number in insertion sort take "+heapSortExecutionTime+ "mil sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "heap_Sort", "SortingNumbers");
+        printValue(numbers);
+        randomize(num,n);
+        //bucket_sort
+        algo.bucketSort(num);
+        long bucketSortExecutionTime =algo.executionTime;
+        System.out.println("total execution time of "+num.length+ "number in insertion sort take "+bucketSortExecutionTime+ "mil sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "bucket_Sort", "SortingNumbers");
+        printValue(numbers);
+        randomize(num,n);
+        //shell sort
+        algo.shellSort(num);
+        long shellSortExecutionTime =algo.executionTime;
+        System.out.println("total execution time of "+num.length+ "number in insertion sort take "+shellSortExecutionTime+ "mil sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "shell_Sort", "SortingNumbers");
+        printValue(numbers);
+        randomize(num,n);
+        // Come to conclusion about which Sorting Algo is better in given data set.
 
     }
 
